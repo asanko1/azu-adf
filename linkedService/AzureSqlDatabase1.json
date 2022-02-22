@@ -1,12 +1,19 @@
 {
 	"name": "AzureSqlDatabase1",
-	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
 		"annotations": [],
 		"type": "AzureSqlDatabase",
 		"typeProperties": {
-			"connectionString": "integrated security=False;encrypt=True;connection timeout=30;data source=azu-sql-server1.database.windows.net;initial catalog=azu-sqldb1;user id=asanko",
-			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQEQ5NjM2NTU4LTBDNDYtNDgzOS1CMkE1LTU4OEUxRkMxQTk1NV81M2Q2NGUxNi05OTliLTQyYjUtOWNmZC05ZWRlNzdmOTE3MjMiDQp9"
+			"connectionString": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=azu-sql-server1.database.windows.net;Initial Catalog=azu-sqldb1;User ID=asanko",
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "AzureKeyVault1",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "sqldb1"
+			}
 		}
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/linkedservices"
 }
